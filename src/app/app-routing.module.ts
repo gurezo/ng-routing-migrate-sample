@@ -5,15 +5,15 @@ import { NotFoundComponent } from './not-found/not-found.component';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: './menu/menu.module#MenuModule'
+    loadChildren: () => import('./menu/menu.module').then(m => m.MenuModule)
   },
   {
     path: 'chart',
-    loadChildren: './chart/chart.module#ChartModule'
+    loadChildren: () => import('./chart/chart.module').then(m => m.ChartModule)
   },
   {
     path: 'table',
-    loadChildren: './table/table.module#TableModule'
+    loadChildren: () => import('./table/table.module').then(m => m.TableModule)
   },
   {
     path: '**',
